@@ -78,6 +78,7 @@ if __name__ == "__main__":
     create_net = net_factory.get_net_instance()
     net = create_net()
     model = net.build_network()
+    print("model is read")
     
     if args.task == "train":
         # 从配置文件中读取并设置优化函数

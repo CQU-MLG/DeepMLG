@@ -2,6 +2,7 @@
 
 import numpy as np
 from scipy import ndimage
+from tensorflow.keras import utils
 
 def get_training_set(file_path):
     train_imgs = []
@@ -15,5 +16,10 @@ def get_training_set(file_path):
             gt = int(eachline[1])
             train_gt.append(gt)
             line = f.readline()
+
+    train_imgs = np.reshape(train_imgs, newshape=[len(train_imgs), len(train_imgs[0]), len(train_imgs[0][0]), len(train_imgs[0][0][0])])
+    # one-hot
+    train_gt = utils.to_categorical(train_gt, 2)
+    print(np.array(train_imgs).shape)
            
     return train_imgs, train_gt

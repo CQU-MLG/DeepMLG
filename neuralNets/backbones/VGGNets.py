@@ -54,8 +54,8 @@ class VGGNet16(INeuralNet):
         model.add( Flatten() )
 #        model.add( Dense(4096, activation='relu') )
 #        model.add( Dense(4096, activation='relu') )
-        model.add( Dense(1000, activation='relu') )
-        model.add( Dense(10, activation='softmax') )
+#         model.add( Dense(1000, activation='relu') )
+        model.add( Dense(2, activation='softmax') )
         
         model.summary()
         return model
